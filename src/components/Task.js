@@ -1,12 +1,12 @@
 // src/components/Task.js
 
 function Task(props) {
-
+  
     return (
       <div className="task-card">
         <div className="task-card-half">
           <h1>{props.task.name}</h1>
-          {false
+          {props.task.isDone
             ? <span>DONE </span>
             : <span>PENDING ⌛</span>
           }
@@ -14,8 +14,11 @@ function Task(props) {
           <h2> Task Description </h2>
           <p>{props.task.description}</p>
   
-          <button className="add" onClick={() => {}}>
-            {false 
+          <button 
+            className="add"
+            onClick={() => props.toggleTask(props.task._id)}       // <== UPDATE 
+          >
+            {props.task.isDone 
               ? <span>UNDO </span> 
               : <span>✔️</span>
             }
